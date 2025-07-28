@@ -76,7 +76,7 @@ const handleSubmit = async (e: React.FormEvent) => {
             
             <div>
               <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
-                Full name
+                Username
               </label>
               <input
                 id="name"

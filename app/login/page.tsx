@@ -21,15 +21,15 @@ export default function LoginPage() {
 
     try {
       const res = await axios.post(
-        'http://localhost:3001/api/login', // <-- Replace with your backend URL
+        '/api/login', 
         { username, password },
-        { withCredentials: true } // So cookie is saved by browser
+        { withCredentials: true }
       );
       
-      setUser(res.data.user); // <-- Set user in context
+      setUser(res.data.user);
       console.log('Login successful:', res.data);
       router.push('/ai-agent');
-      // Optionally redirect or show success
+     
     } catch (err: any) {
       setError("Invalid credentials");
     } finally {

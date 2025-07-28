@@ -17,8 +17,6 @@ export default function SignupPage() {
   const {user,logout,setUser} = useAuth();
   const router = useRouter();
 
-
-
 const handleSubmit = async (e: React.FormEvent) => {
   e.preventDefault();
   setLoading(true);
@@ -40,8 +38,8 @@ const handleSubmit = async (e: React.FormEvent) => {
         withCredentials: true, // Important for sending and receiving cookies
       }
     );
-    setUser(response.data.user); // <-- Set user in context
-    router.push('/ai-agent'); // Navigate on successful signup
+    setUser(response.data.user); 
+    router.push('/ai-agent');
   } catch (err: any) {
     console.error(err);
     if (err.response?.data?.message) {
@@ -53,8 +51,6 @@ const handleSubmit = async (e: React.FormEvent) => {
 
   setLoading(false);
 };
-
-
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-50 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-md w-full space-y-8">

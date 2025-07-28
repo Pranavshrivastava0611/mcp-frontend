@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation';
 
 type User = {
   id: string;
-  name: string;
+  username: string;
   email: string;
 };
 
@@ -30,23 +30,6 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const router = useRouter();
-
-  // Uncomment when you want to auto-fetch user session on load
-  // useEffect(() => {
-  //   const fetchUser = async () => {
-  //     try {
-  //       const res = await axios.get('/api/me', { withCredentials: true });
-  //       setUser(res.data.user);
-  //     } catch (err: any) {
-  //       console.error(err);
-  //       setUser(null);
-  //       setError(err.response?.data?.message || 'Failed to fetch user');
-  //     } finally {
-  //       setLoading(false);
-  //     }
-  //   };
-  //   fetchUser();
-  // }, []);
 
   const logout = async () => {
     await axios.post('/api/logout', {}, { withCredentials: true });

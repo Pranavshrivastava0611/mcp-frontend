@@ -31,8 +31,7 @@ export default function LoginPage() {
       router.push('/ai-agent');
       // Optionally redirect or show success
     } catch (err: any) {
-      console.error(err);
-      setError(err.response?.data?.message || 'Login failed');
+      setError("Invalid credentials");
     } finally {
       setLoading(false);
     }

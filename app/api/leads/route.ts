@@ -8,7 +8,7 @@ export async function POST(req: NextRequest) {
 
     // Extract token from cookies
     const token = req.cookies.get('token')?.value;
-
+    
     if (!token) {
       return NextResponse.json({ message: 'Unauthorized: No token found' }, { status: 401 });
     }
@@ -27,7 +27,6 @@ export async function POST(req: NextRequest) {
         withCredentials: true
       }
     );
-
     return NextResponse.json(backendRes.data);
   } catch (error: any) {
     console.error('Error proxying request:', error || error.message);

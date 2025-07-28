@@ -3,6 +3,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import { AuthProvider } from "@/context/Authcontext";
 import { ArrowUp } from "lucide-react";
+import { Toaster } from "react-hot-toast";
 
 
 export default function RootLayout({
@@ -16,6 +17,7 @@ export default function RootLayout({
       >
         <AuthProvider>
         {children}
+        <Toaster/>
         </AuthProvider>
       </body>
     </html>
